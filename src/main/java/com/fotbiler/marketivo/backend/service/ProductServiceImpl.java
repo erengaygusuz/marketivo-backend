@@ -2,17 +2,17 @@ package com.fotbiler.marketivo.backend.service;
 
 import com.fotbiler.marketivo.backend.dao.ProductRepository;
 import com.fotbiler.marketivo.backend.entity.Product;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService{
 
-    private ProductRepository productRepository;
-
-    public ProductServiceImpl(ProductRepository productRepository){
-        this.productRepository = productRepository;
-    }
+    private final ProductRepository productRepository;
 
     @Override
     public Page<Product> searchProductsByName(String name, Pageable pageable) {

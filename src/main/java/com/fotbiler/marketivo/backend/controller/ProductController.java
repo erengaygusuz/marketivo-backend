@@ -19,13 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 public class ProductController {
 
-    private ProductService productService;
-    private PagedResourcesAssembler<Product> pagedAssembler;
-
-    public ProductController(ProductService productService, PagedResourcesAssembler<Product> pagedAssembler){
-        this.productService = productService;
-        this.pagedAssembler = pagedAssembler;
-    }
+    private final ProductService productService;
+    private final PagedResourcesAssembler<Product> pagedAssembler;
 
     @GetMapping("/products/search/findByNameContaining")
     public ResponseEntity<PagedModel<?>> findByNameContaining(@RequestParam("name") String name,
@@ -42,4 +37,3 @@ public class ProductController {
         return ResponseEntity.ok(model);
     }
 }
-
