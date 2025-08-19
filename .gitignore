@@ -33,3 +33,11 @@ build/
 .vscode/
 
 !target/marketivo-backend-*.jar
+
+# Environment Variables - Keep these files out of version control
+.env
+.env.dev
+.env.prod
+.env.test
+.env.local
+.env.*.local
